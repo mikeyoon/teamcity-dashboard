@@ -114,6 +114,8 @@ namespace TeamCityDashboard.Services
       if (buildConfigs.Count == 0)
         return null;//do not report 'empty' projects'
 
+      var previousBuilds = buildConfigs.Where(b => b.CurrentBuildDate.HasValue);
+
       return new Project
       {
         Id = projectId,
@@ -122,7 +124,7 @@ namespace TeamCityDashboard.Services
         IconUrl = parseProjectProperty(projectDetails, "dashboard.project.logo.url"),
         SonarProjectKey = parseProjectProperty(projectDetails, "sonar.project.key"),
         BuildConfigs = buildConfigs,
-        LastBuildDate = (buildConfigs.Where(b => b.CurrentBuildDate.HasValue).Max(b => b.CurrentBuildDate.Value))
+        LastBuildDate = previousBuilds.Any() ? new DateTime?(previousBuilds.Max(b => b.CurrentBuildDate.Value)) : null
       };
     }
 
