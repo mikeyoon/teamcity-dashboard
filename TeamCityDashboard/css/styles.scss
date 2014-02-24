@@ -88,6 +88,7 @@ h4,
 }
 #pushMessagesContainer
 {
+	clear: both;
 	margin: 20px 0 0 100px;
 
   h2
@@ -106,8 +107,9 @@ h4,
   float: left;
   margin-bottom: 10px;
   width: 250px; /*default width; we try to make them 120 with JS*/
-  min-height: 120px;
+  min-height: 160px;
   overflow: hidden;
+  margin-right: 10px;
 
   &.event
   {

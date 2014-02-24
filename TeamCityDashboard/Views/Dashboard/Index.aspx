@@ -216,7 +216,7 @@
                     //now activate the timeago ticker
                     $a.find('.last-build-date span').timeago();
 
-                    $a.width(120);
+                    $a.width(160);
                     var overflows = $a.find('.item-text .details p')[0].scrollWidth > $a.find('.item-text .details p')[0].clientWidth;
                     var hasStatistics = $a.find('.item-text .statistics-container').length;
                     var hasChart = $a.find('.extra-text .chart').length;
